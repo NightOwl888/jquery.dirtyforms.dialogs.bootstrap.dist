@@ -17,8 +17,8 @@ This module causes Dirty Forms to use Bootstrap Modal as its dialog when the use
 Prerequesites must be included in this order:
 
 - [jQuery](http://jquery.com) (>= 1.9.1)
-- [bootstrap](http://getbootstrap.com/) (>= 3.0.0) - both the JS and CSS
-- [jquery.dirtyforms](https://github.com/snikch/jquery.dirtyforms)
+- [bootstrap](http://getbootstrap.com/) (>= 3.0.0) - both the CSS and JS
+- [jquery.dirtyforms](https://github.com/snikch/jquery.dirtyforms) (>= 1.0.0)
 
 > If you are using a [Package Manager](#package-managers), these dependencies will be installed automatically, but depending on your environment you may still need to add references to them manually.
 
@@ -28,12 +28,12 @@ There are several different ways to get the code. Some examples below:
 #### CDN
 The Bootstrap Modal dialog module is available over jsDelivr CDN and can directly included to every page.
 ```HTML
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00003/jquery.dirtyforms.dialogs.bootstrap.min.js"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00004/jquery.dirtyforms.dialogs.bootstrap.min.js"></script>
 ```
 
 jsDelivr also supports [on-the-fly concatenation of files](https://github.com/jsdelivr/jsdelivr#load-multiple-files-with-single-http-request), so you can reference only 1 URL to get jQuery, bootstrap, jquery.dirtyforms, and jquery.dirtyforms.dialogs.bootstrap in one request.
 ```HTML
-<script type="text/javascript" src="//cdn.jsdelivr.net/g/jquery@1.11.3,bootstrap@3.0.0,jquery.dirtyforms@2.0.0-beta00003(jquery.dirtyforms.min.js+jquery.dirtyforms.dialogs.bootstrap.min.js)"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/g/jquery@1.11.3,bootstrap@3.0.0,jquery.dirtyforms@2.0.0-beta00004(jquery.dirtyforms.min.js+jquery.dirtyforms.dialogs.bootstrap.min.js)"></script>
 ```
 
 #### Self-Hosted
@@ -70,7 +70,7 @@ A [SourceMap](https://docs.google.com/document/d/1U1RGAehQwRypUTovF1KRlpiOFze0b-
 #### CDN
 
 ```HTML
-<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00003/jquery.dirtyforms.dialogs.bootstrap.min.js.map"></script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00004/jquery.dirtyforms.dialogs.bootstrap.min.js.map"></script>
 ```
 
 #### Package Managers
@@ -92,8 +92,8 @@ This dialog module is automatic. Simply include the reference to the dialog modu
 // JavaScript
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js" type="text/javascript"></script>
 <script src="//cdn.jsdelivr.net/bootstrap/3.0.0/js/bootstrap.min.js" type="text/javascript"></script>
-<script src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00003/jquery.dirtyforms.min.js" type="text/javascript"></script>
-<script src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00003/jquery.dirtyforms.dialogs.bootstrap.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00004/jquery.dirtyforms.min.js" type="text/javascript"></script>
+<script src="//cdn.jsdelivr.net/jquery.dirtyforms/2.0.0-beta00004/jquery.dirtyforms.dialogs.bootstrap.min.js" type="text/javascript"></script>
 ```
 
 > If not using a CDN, you need to apply the dependencies in the same order as in the example above.
