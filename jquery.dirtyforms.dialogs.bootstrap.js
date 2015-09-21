@@ -1,23 +1,17 @@
 /*!
-Bootstrap modal dialog (for jQuery Dirty Forms) | v2.0.0-beta00004 | github.com/snikch/jquery.dirtyforms
+Bootstrap modal dialog (for jQuery Dirty Forms) | v2.0.0-beta00005 | github.com/snikch/jquery.dirtyforms
 (c) 2015 Shad Storhaug
 License MIT
 */
 
-// Support for UMD: https://github.com/umdjs/umd/blob/master/jqueryPluginCommonjs.js
-// This allows for tools such as Browserify to compose the components together into a single HTTP request.
-(function (factory) {
-    if (typeof define === 'function' && define.amd) {
-        // AMD. Register as an anonymous module.
-        define(['jquery'], factory);
-    } else if (typeof exports === 'object') {
-        // Node/CommonJS
-        module.exports = factory(require('jquery'));
-    } else {
-        // Browser globals
-        factory(jQuery);
-    }
-}(function ($) {
+(function($, window, document, undefined) {
+    // Can't use ECMAScript 5's strict mode because several apps 
+    // including ASP.NET trace the stack via arguments.caller.callee 
+    // and Firefox dies if you try to trace through "use strict" call chains. 
+    // See jQuery issue (#13335)
+    // Support: Firefox 18+
+    //"use strict";
+
     var exclamationGlyphicon = '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
 
     $.DirtyForms.dialog = {
@@ -113,4 +107,4 @@ License MIT
         selector: 'no-op',
     };
 
-}));
+})(jQuery, window, document);
