@@ -12,11 +12,20 @@ License MIT
     // Support: Firefox 18+
     //"use strict";
 
-    var exclamationGlyphicon = '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
+    // Check bootstrap major version; the modal's markup depends on it!
+    var bootstrapMajorVersion = parseInt($.fn.tooltip.Constructor.VERSION.match(/\d+/));
+
+    // Glyphicons don't exist in bootstrap v4, so decide if title needs it
+    var dialogTitle = 'Are you sure you want to do that?';
+
+    if (bootstrapMajorVersion < 4) {
+        var exclamationGlyphicon = '<span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> ';
+        dialogTitle = exclamationGlyphicon + dialogTitle;
+    }
 
     $.DirtyForms.dialog = {
         // Custom properties and methods to allow overriding (may differ per dialog)
-        title: exclamationGlyphicon + 'Are you sure you want to do that?',
+        title: dialogTitle,
         proceedButtonClass: 'dirty-proceed',
         proceedButtonText: 'Leave This Page',
         stayButtonClass: 'dirty-stay',
@@ -37,7 +46,8 @@ License MIT
             if ($dialog.length === 0) {
                 // NOTE: Buttons don't have the ignore class because Bootstrap 3 isn't compatible
                 // with old versions of jQuery that don't properly cancel the click events.
-                $dialog =
+
+                var $bootstrapVersion3Dialog =
                     $('<div id="' + this.dialogID + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="' + this.titleID + '">' +
                         '<div class="modal-dialog" role="document">' +
                             '<div class="modal-content panel-danger">' +
@@ -53,6 +63,27 @@ License MIT
                             '</div>' +
                         '</div>' +
                     '</div>');
+
+                var $bootstrapVersion4Dialog =
+                    $('<div id="' + this.dialogID + '" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="' + this.titleID + '">' +
+                        '<div class="modal-dialog" role="document">' +
+                            '<div class="modal-content">' +
+                                '<div class="modal-header card-header bg-danger">' +
+                                    '<h5 class="modal-title text-white" id="' + this.titleID + '"></h5>' +
+                                    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
+                                '</div>' +
+                                '<div class="modal-body card-body ' + this.messageClass + '"></div>' +
+                                '<div class="modal-footer card-footer">' +
+                                    '<button type="button" class="' + this.proceedButtonClass + ' btn btn-danger" data-dismiss="modal"></button>' +
+                                    '<button type="button" class="' + this.stayButtonClass + ' btn btn-outline-dark" data-dismiss="modal"></button>' +
+                                '</div>' +
+                            '</div>' +
+                        '</div>' +
+                    '</div>');
+
+                $dialog = bootstrapMajorVersion < 4
+                    ? $bootstrapVersion3Dialog
+                    : $bootstrapVersion4Dialog;
 
                 // Append to the body so we can capture DOM events.
                 // Flag the dialog for later removal.
