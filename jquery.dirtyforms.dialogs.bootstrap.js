@@ -42,8 +42,8 @@ License MIT
                         '<div class="modal-dialog" role="document">' +
                             '<div class="modal-content panel-danger">' +
                                 '<div class="modal-header panel-heading">' +
-                                    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                                     '<h3 class="modal-title" id="' + this.titleID + '"></h3>' +
+                                    '<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>' +
                                 '</div>' +
                                 '<div class="modal-body panel-body ' + this.messageClass + '"></div>' +
                                 '<div class="modal-footer panel-footer">' +
